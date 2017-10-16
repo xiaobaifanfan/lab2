@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+	
+    <package name="default" namespace="/" extends="struts-default">
+	  <!-- 新增书籍 -->
+	  <action name="act" class="servlet.welcome" method="wewe">
+	      <result name="SUCCESS">/welcome.jsp</result>
+	  </action>
+       <action name="adds" class="servlet.add" method="execute">
+            <result name="ing">/error.jsp</result>
+            <result name="success">/welcome.jsp</result>
+            <result name="addauthor">/addauthor.jsp</result>
+        </action>
+     <action name="addwriter" class="servlet.addinfo">
+            <result name="success">/welcome.jsp</result>
+        </action>
+     <action name="show" class="servlet.detail">
+            <result name="detail">/showdetail.jsp</result>
+     </action>
+     <!-- 删除操作 -->
+     <action name="delete" class="servlet.deletebook">
+            <result name="delbook">/welcome.jsp</result>
+     </action>
+     <!-- 修改操作 -->
+      <action name="update" class="servlet.updatebook">
+            <result name="updbook">/update.jsp</result>
+     </action>
+     
+        <action name="updend" class="servlet.updatebook" method="updateend">
+            <result name="endupd">/welcome.jsp</result>
+     </action>
+	<action name="query" class="servlet.querybyauthor" >
+            <result name="query">/result.jsp</result>
+     </action>
+    <action name="querybytitle" class="servlet.querybyauthor" method="dd" >
+            <result name="query">/result.jsp</result>
+     </action>
+    </package>
+
+    <include file="example.xml"/>
+
+    <!-- Add packages here -->
+
+</struts>
